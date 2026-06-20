@@ -50,7 +50,7 @@ GitHub API 및 Postman: NPM 레지스트리와 GitHub에서 제공하는 공개 
 
 - **[Capture 01] Attestation (Sigstore):**
   ![1](img/1.png)
-- JSON 상세 설명: 응답 내 attestations 배열 안의 predicateType 필드가 https://slsa.dev/provenance/v0.2를 가리키고 있습니다. 이는 이 패키지가 신뢰할 수 있는 외부 환경에서 위변조 없이 빌드되었음을 뜻하는 핵심 데이터입니다.
+- JSON 상세 설명: 응답 내 attestations 배열 안의 predicateType 필드가 ~~publish/v0.1를 가리키고 있습니다. 이는 이 패키지가 신뢰할 수 있는 외부 환경에서 위변조 없이 빌드되었음을 뜻하는 핵심 데이터입니다.
 
 - **[Capture 02] Attestation (TanStack):**
   ![2](img/2.png)
@@ -62,7 +62,7 @@ GitHub API 및 Postman: NPM 레지스트리와 GitHub에서 제공하는 공개 
 
 - **[Capture 04] 커밋→PR (TanStack):**
   ![4](img/4.png)
-- JSON 상세 설명: 응답 결과가 빈 배열 []로 떨어집니다. 깃허브 상에서 코드 리뷰나 PR 절차 기록을 남기지 않고, 공격자가 브랜치에 직접 코드를 밀어 넣었음을 의미합니다.
+- JSON 상세 설명: 응답 결과가 빈 배열 { "error": "Not found" }로 떨어집니다. 깃허브 상에서 코드 리뷰나 PR 절차 기록을 남기지 않고, 공격자가 브랜치에 직접 코드를 밀어 넣었음을 의미합니다.
 
 - **[Capture 05] PR→리뷰어 (Sigstore):**
   ![5](img/5.png)
@@ -74,7 +74,7 @@ GitHub API 및 Postman: NPM 레지스트리와 GitHub에서 제공하는 공개 
 
 - **[Capture 07] 브랜치 정책 (Sigstore):**
   ![7](img/7.png)
-- JSON 상세 설명: message: "Not Found" 또는 Required admin access 메시지가 출력됩니다. 서드파티 사용자 관점에서는 브랜치 보호 정책 API를 직접 조회하는 방식에 제약이 따름을 보여주는 증거입니다.
+- JSON 상세 설명: 메시지가 출력되지 않습니다. 서드파티 사용자 관점에서는 브랜치 보호 정책 API를 직접 조회하는 방식에 제약이 따름을 보여주는 증거입니다.
 
 - **[Capture 08] 브랜치 정책 (TanStack):**
   ![8](img/8.png)
